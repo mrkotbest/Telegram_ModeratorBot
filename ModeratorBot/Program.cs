@@ -1,19 +1,18 @@
-﻿using Microsoft.VisualBasic;
-using ModeratorBot;
+﻿using ModeratorBot;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-const string TELEGRAM_BOT_TOKEN = "6177939262:AAHIaPrlRVOu4aCh15EmE7Sqg-g4k_FG99M";
-const long ADMIN_ID = 438889695;
+const string TELEGRAM_BOT_TOKEN = "Your TOKEN";
+const int ADMIN_ID = 111111111;
 
 var botClient = new TelegramBotClient(TELEGRAM_BOT_TOKEN);
 
 using var cts = new CancellationTokenSource();
 
-var huis = new List<Hui>();
+var huis = new List<Intruder>();
 var words = new List<string>
 {
     "Хуй",
@@ -105,7 +104,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
                     cancellationToken: cancellationToken);
 
                 // Add the Criminal to List
-                huis.Add(new Hui() { ID = fromId });
+                huis.Add(new Intruder() { ID = fromId });
                 Console.WriteLine($"New_Hui_ID #{ fromId } | Username: @{ username } | Count_Of_Bans: { countOfBans } | Message: { messageText }");
             }
         }
